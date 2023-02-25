@@ -54,8 +54,8 @@ class RoomController {
 
   async compile ({ params, request, response }) {
     try {
-      console.log(request.all())
-      console.log(params)
+      console.log("AAA", request)
+      console.log("BBB", params)
       let payload = { 
         ...request.all(),
         clientId: "48b0b68b0be94ad3587d4c7065a023c7",
