@@ -3,6 +3,7 @@
 // const uuidv4 = require('uuid/v4');
 
 const Room = use('App/Models/Room');
+const Request = use('Request'); // Adonis request method
 
 
 
@@ -49,6 +50,22 @@ class RoomController {
     broadcast(room.uuid, 'room:newMessage', message);
 
     return message
+  }
+
+  async compile ({ params, request, response }) {
+    try {
+      let payload = { 
+        ...request.all(),
+        clientId: "48b0b68b0be94ad3587d4c7065a023c7",
+        clientSecret: "11b8bb4e2e1875a981560ecb7be82456022c08d601c284a9cf8f4cffa3a5ccf7"
+    
+      }
+      const result = yield Request.post('https://api.jdoodle.com/v1/execute', payload)
+      return response.send(JSON.parse(result))
+      
+    } catch (error) {
+      return {output: error}
+    }
   }
 }
 

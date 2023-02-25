@@ -45,6 +45,7 @@ Route.group(() => {
 
     Route.get('room/:id', 'RoomController.select')
     Route.post('room/:id', 'RoomController.createMessage')
+    Route.post('compile', 'RoomController.compile')
   })
   .prefix('v1')
 
