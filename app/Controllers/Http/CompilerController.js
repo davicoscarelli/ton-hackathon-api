@@ -44,8 +44,6 @@ class CompilerController {
    */
   async store ({ request, response }) {
     try {
-      console.log("AAA", request.only(['script', 'language']))
-      console.log("BBB", params)
       let payload = { 
         ...request.all(),
         clientId: "48b0b68b0be94ad3587d4c7065a023c7",
