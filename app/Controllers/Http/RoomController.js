@@ -60,7 +60,7 @@ class RoomController {
         clientSecret: "11b8bb4e2e1875a981560ecb7be82456022c08d601c284a9cf8f4cffa3a5ccf7"
     
       }
-      const result = yield Request.post('https://api.jdoodle.com/v1/execute', payload)
+      const result = Request.post('https://api.jdoodle.com/v1/execute', payload)
       return response.send(JSON.parse(result))
       
     } catch (error) {
