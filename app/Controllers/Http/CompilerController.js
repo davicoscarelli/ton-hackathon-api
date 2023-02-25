@@ -51,14 +51,14 @@ class CompilerController {
     
       }
       console.log(payload)
-      let response = axios.post('https://api.jdoodle.com/v1/execute', payload, {
+      let response = await axios.post('https://api.jdoodle.com/v1/execute', payload, {
           headers: {
               'Content-Type': 'application/json',
               'Access-Control-Allow-Origin': '*'
           }
       });
-      console.log(response)
-      return response
+      console.log(response.data)
+      return response.data
     } catch (error) {
       console.log(error)
       return {output: error}
