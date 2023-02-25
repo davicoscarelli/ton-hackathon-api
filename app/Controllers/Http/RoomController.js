@@ -54,7 +54,7 @@ class RoomController {
 
   async compile ({ params, request, response }) {
     try {
-      console.log("AAA", request)
+      console.log("AAA", request.only(['script', 'language']))
       console.log("BBB", params)
       let payload = { 
         ...request.all(),
