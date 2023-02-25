@@ -3,7 +3,6 @@
 // const uuidv4 = require('uuid/v4');
 
 const Room = use('App/Models/Room');
-const axios = use('axios')
 
 
 
@@ -50,30 +49,6 @@ class RoomController {
     broadcast(room.uuid, 'room:newMessage', message);
 
     return message
-  }
-
-  async compile ({ params, request, response }) {
-    try {
-      console.log("AAA", request.only(['script', 'language']))
-      console.log("BBB", params)
-      let payload = { 
-        ...request.all(),
-        clientId: "48b0b68b0be94ad3587d4c7065a023c7",
-        clientSecret: "11b8bb4e2e1875a981560ecb7be82456022c08d601c284a9cf8f4cffa3a5ccf7"
-    
-      }
-      console.log(payload)
-      let response = axios.post('https://api.jdoodle.com/v1/execute', payload, {
-          headers: {
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*'
-          }
-      });
-      return response
-    } catch (error) {
-      console.log(error)
-      return {output: error}
-    }
   }
 }
 

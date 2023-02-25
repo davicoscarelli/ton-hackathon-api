@@ -33,6 +33,11 @@ Route.group(() => {
 
 }).prefix("v1")
 
+Route.group(() => {
+    Route.post("compiler", "CompilerController.store").as("compiler.store");
+
+}).prefix("v1")
+
 // Route.group(() => {
 //     Route.put("rooms", "RoomController.update").as("rooms.update");
 //     Route.post("rooms", "RoomController.store").as("rooms.store");
@@ -45,7 +50,6 @@ Route.group(() => {
 
     Route.get('room/:id', 'RoomController.select')
     Route.post('room/:id', 'RoomController.createMessage')
-    Route.post('compile', 'RoomController.compile')
   })
   .prefix('v1')
 
